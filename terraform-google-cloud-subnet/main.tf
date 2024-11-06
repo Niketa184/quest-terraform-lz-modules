@@ -29,7 +29,7 @@ resource "google_compute_subnetwork" "subnetwork" {
   network                  = var.network_name
   project                  = var.project_id
   description              = lookup(each.value, "description", null)
-  secondary_ip_range       = [
+/*  secondary_ip_range       = [
     for i in range(
       length(
         contains(
@@ -39,7 +39,7 @@ resource "google_compute_subnetwork" "subnetwork" {
     )) :
     var.secondary_ranges[each.value.subnet_name][i]
   ]
-
+*/
   purpose                  = lookup(each.value, "purpose", null)
   role                     = lookup(each.value, "role", null)
 }
